@@ -53,3 +53,9 @@ echo "/nix/var/nix/profiles/default/bin" >> "$GITHUB_PATH"
 if [[ $INPUT_NIX_PATH != "" ]]; then
   echo "NIX_PATH=${INPUT_NIX_PATH}" >> "$GITHUB_ENV"
 fi
+
+cat >/tmp/post-build-hook.sh <<EOF
+#!/bin/sh
+true
+EOF
+chmod a+x /tmp/post-build-hook.sh
